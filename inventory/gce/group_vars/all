@@ -6,45 +6,64 @@ cloud_config:
   vpc_name: "{{ cluster_name }}-vpc"
   subnet_name: "{{ cluster_name }}-subnet"
   subnet_cidr: '10.0.10.0/24'
-  admin_username: google-user
+  admin_username: terry
   ssh:
-    privatekey: '~/.ssh/id_rsa'
+    privatekey: '/home/terry/.ssh/id_rsa'
 
 firewall_rules:
   - name: "{{ cluster_name }}-allow-internal"            # default firewall rule - do not change
-    allowed: 'tcp:0-65535;udp:0-65535'
+    allowed: 'tcp:0-65535;udp:0-65535;icmp'
     src_range: "{{ cloud_config.subnet_cidr }}"
   - name: "{{ cluster_name }}-ssh-access"
     allowed: 'tcp:22'
     src_range: '0.0.0.0/0'
   - name: "{{ cluster_name }}-ambari-access"
     allowed: 'tcp:8080,8443'
-    src_range: '0.0.0.0/0'
+    # src_range: '0.0.0.0/0'
+    src_range: "REPLACE_WITH_DEVOPS_VM_EXTERNAL_IP"
 
 nodes:
-  - host_group: "hdp-master"
+  - host_group: "hdp-management"
     count: 1
     image: centos-7
     type: n1-highmem-4
     public_ip: true
     root_disk:
       type: pd-ssd
-      size: 15
+      size: 500
 
-  - host_group: "hdp-slave"
-    count: 2
+  - host_group: "hdp-masternode-01"
+    count: 1
     image: centos-7
-    type: n1-standard-2
+    type: n1-highmem-2
     public_ip: true
     root_disk:
       type: pd-ssd
-      size: 15
+      size: 500
 
-  - host_group: "hdp-edge"
-    count: 0
+  - host_group: "hdp-masternode-02"
+    count: 1
     image: centos-7
-    type: n1-standard-1
+    type: n1-highmem-2
+    public_ip: true
+    root_disk:
+      type: pd-ssd
+      size: 500
+
+  - host_group: "hdp-worker"
+    count: 3
+    image: centos-7
+    type: n1-highmem-2
     public_ip: true
     root_disk:
       type: pd-standard
-      size: 20
+      size: 500
+
+  - host_group: "hdf-worker"
+    count: 1
+    image: centos-7
+    type: n1-highmem-2
+    public_ip: true
+    root_disk:
+      type: pd-standard
+      size: 500
