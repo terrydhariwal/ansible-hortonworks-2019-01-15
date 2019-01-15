@@ -3,7 +3,7 @@
 ## cluster configuration ##
 ###########################
 
-cluster_name: 'nexify-hdp-new'
+cluster_name: 'automation-test'
 
 ambari_version: '2.7.3.0'                                 # must be the 4-part full version number
 
@@ -163,12 +163,11 @@ cluster_template_file: 'cluster_template.j2'              # the cluster creation
 ## blueprint configuration ##
 #############################
 
-blueprint_name: '{{ cluster_name }}_blueprint'            # the name of the blueprint as it will be stored in Ambari
-blueprint_file: 'blueprint_dynamic.j2'                    # the blueprint JSON file - 'blueprint_dynamic.j2' is a Jinja2 template that generates the required JSON
-blueprint_dynamic:                                        # properties for the dynamic blueprint - these are only used by the 'blueprint_dynamic.j2' template to generate the JSON
+blueprint_name: '{{ cluster_name }}_blueprint'                  # the name of the blueprint as it will be stored in Ambari
+blueprint_file: 'blueprint_dynamic.j2'                          # the blueprint JSON file - 'blueprint_dynamic.j2' is a Jinja2 template that generates the required JSON
+blueprint_dynamic:                                              # properties for the dynamic blueprint - these are only used by the 'blueprint_dynamic.j2' template to generate the JSON
   - host_group: "hdp-masternode-01"
-    # clients: ['ZOOKEEPER_CLIENT', 'HDFS_CLIENT', 'YARN_CLIENT', 'MAPREDUCE2_CLIENT', 'TEZ_CLIENT', 'SLIDER', 'PIG', 'SQOOP', 'HIVE_CLIENT', 'HCAT', 'OOZIE_CLIENT', 'INFRA_SOLR_CLIENT', 'SPARK2_CLIENT', 'HBASE_CLIENT']
-    clients: ['ZOOKEEPER_CLIENT', 'HDFS_CLIENT', 'YARN_CLIENT', 'MAPREDUCE2_CLIENT', 'TEZ_CLIENT', 'PIG', 'SQOOP', 'HIVE_CLIENT', 'INFRA_SOLR_CLIENT', 'SPARK2_CLIENT', 'HBASE_CLIENT']
+    clients: ['ZOOKEEPER_CLIENT', 'HDFS_CLIENT', 'YARN_CLIENT', 'MAPREDUCE2_CLIENT', 'TEZ_CLIENT', 'SLIDER', 'PIG', 'SQOOP', 'HIVE_CLIENT', 'HCAT', 'OOZIE_CLIENT', 'INFRA_SOLR_CLIENT', 'SPARK2_CLIENT', 'HBASE_CLIENT']
     services:
       - ZOOKEEPER_SERVER
       - NAMENODE
@@ -178,13 +177,12 @@ blueprint_dynamic:                                        # properties for the d
       - HBASE_MASTER
       - HIVE_SERVER
       - HIVE_METASTORE
-      # - WEBHCAT_SERVER
+      - WEBHCAT_SERVER
       - ACTIVITY_ANALYZER
       - HST_AGENT
       - METRICS_MONITOR
   - host_group: "hdp-masternode-02"
-    # clients: ['ZOOKEEPER_CLIENT', 'HDFS_CLIENT', 'YARN_CLIENT', 'MAPREDUCE2_CLIENT', 'TEZ_CLIENT', 'SLIDER', 'PIG', 'SQOOP', 'HIVE_CLIENT', 'HCAT', 'OOZIE_CLIENT', 'INFRA_SOLR_CLIENT', 'SPARK2_CLIENT', 'HBASE_CLIENT']
-    clients: ['ZOOKEEPER_CLIENT', 'HDFS_CLIENT', 'YARN_CLIENT', 'MAPREDUCE2_CLIENT', 'TEZ_CLIENT', 'PIG', 'SQOOP', 'HIVE_CLIENT', 'INFRA_SOLR_CLIENT', 'SPARK2_CLIENT', 'HBASE_CLIENT']
+    clients: ['ZOOKEEPER_CLIENT', 'HDFS_CLIENT', 'YARN_CLIENT', 'MAPREDUCE2_CLIENT', 'TEZ_CLIENT', 'SLIDER', 'PIG', 'SQOOP', 'HIVE_CLIENT', 'HCAT', 'OOZIE_CLIENT', 'INFRA_SOLR_CLIENT', 'SPARK2_CLIENT', 'HBASE_CLIENT']
     services:
       - ZOOKEEPER_SERVER
       - NAMENODE
@@ -194,13 +192,12 @@ blueprint_dynamic:                                        # properties for the d
       - HBASE_MASTER
       - HIVE_SERVER
       - HIVE_METASTORE
-      # - OOZIE_SERVER
+      - OOZIE_SERVER
       - ACTIVITY_ANALYZER
       - HST_AGENT
       - METRICS_MONITOR
   - host_group: "hdp-management"
-    # clients: ['ZOOKEEPER_CLIENT', 'HDFS_CLIENT', 'YARN_CLIENT', 'MAPREDUCE2_CLIENT', 'TEZ_CLIENT', 'SLIDER', 'PIG', 'SQOOP', 'HIVE_CLIENT', 'HCAT', 'OOZIE_CLIENT', 'INFRA_SOLR_CLIENT', 'SPARK2_CLIENT', 'HBASE_CLIENT']
-    clients: ['ZOOKEEPER_CLIENT', 'HDFS_CLIENT', 'YARN_CLIENT', 'MAPREDUCE2_CLIENT', 'TEZ_CLIENT', 'PIG', 'SQOOP', 'HIVE_CLIENT', 'INFRA_SOLR_CLIENT', 'SPARK2_CLIENT', 'HBASE_CLIENT']
+    clients: ['ZOOKEEPER_CLIENT', 'HDFS_CLIENT', 'YARN_CLIENT', 'MAPREDUCE2_CLIENT', 'TEZ_CLIENT', 'SLIDER', 'PIG', 'SQOOP', 'HIVE_CLIENT', 'HCAT', 'OOZIE_CLIENT', 'INFRA_SOLR_CLIENT', 'SPARK2_CLIENT', 'HBASE_CLIENT']
     services:
       - ZOOKEEPER_SERVER
       - JOURNALNODE
@@ -208,8 +205,6 @@ blueprint_dynamic:                                        # properties for the d
       - INFRA_SOLR
       - ZEPPELIN_MASTER
       - APP_TIMELINE_SERVER
-      - YARN_REGISTRY_DNS
-      - TIMELINE_READER
       - HISTORYSERVER
       - SPARK2_JOBHISTORYSERVER
       - HST_SERVER
@@ -221,8 +216,7 @@ blueprint_dynamic:                                        # properties for the d
       - METRICS_MONITOR
       - NIFI_REGISTRY_MASTER
   - host_group: "hdp-worker"
-    # clients: ['ZOOKEEPER_CLIENT', 'HDFS_CLIENT', 'YARN_CLIENT', 'MAPREDUCE2_CLIENT', 'TEZ_CLIENT', 'SLIDER', 'PIG', 'SQOOP', 'HIVE_CLIENT', 'HCAT', 'OOZIE_CLIENT', 'INFRA_SOLR_CLIENT', 'SPARK2_CLIENT', 'HBASE_CLIENT']
-    clients: ['ZOOKEEPER_CLIENT', 'HDFS_CLIENT', 'YARN_CLIENT', 'MAPREDUCE2_CLIENT', 'TEZ_CLIENT', 'PIG', 'SQOOP', 'HIVE_CLIENT', 'INFRA_SOLR_CLIENT', 'SPARK2_CLIENT', 'HBASE_CLIENT']
+    clients: ['ZOOKEEPER_CLIENT', 'HDFS_CLIENT', 'YARN_CLIENT', 'MAPREDUCE2_CLIENT', 'TEZ_CLIENT', 'SLIDER', 'PIG', 'SQOOP', 'HIVE_CLIENT', 'HCAT', 'OOZIE_CLIENT', 'INFRA_SOLR_CLIENT', 'SPARK2_CLIENT', 'HBASE_CLIENT']
     services:
       - DATANODE
       - NODEMANAGER
@@ -230,8 +224,7 @@ blueprint_dynamic:                                        # properties for the d
       - HST_AGENT
       - METRICS_MONITOR
   - host_group: "hdf-worker"
-    # clients: ['ZOOKEEPER_CLIENT', 'HDFS_CLIENT', 'YARN_CLIENT', 'MAPREDUCE2_CLIENT', 'TEZ_CLIENT', 'SLIDER', 'PIG', 'SQOOP', 'HIVE_CLIENT', 'HCAT', 'OOZIE_CLIENT', 'INFRA_SOLR_CLIENT', 'SPARK2_CLIENT', 'HBASE_CLIENT']
-    clients: ['ZOOKEEPER_CLIENT', 'HDFS_CLIENT', 'YARN_CLIENT', 'MAPREDUCE2_CLIENT', 'TEZ_CLIENT', 'PIG', 'SQOOP', 'HIVE_CLIENT', 'INFRA_SOLR_CLIENT', 'SPARK2_CLIENT', 'HBASE_CLIENT']
+    clients: ['ZOOKEEPER_CLIENT', 'HDFS_CLIENT', 'YARN_CLIENT', 'MAPREDUCE2_CLIENT', 'TEZ_CLIENT', 'SLIDER', 'PIG', 'SQOOP', 'HIVE_CLIENT', 'HCAT', 'OOZIE_CLIENT', 'INFRA_SOLR_CLIENT', 'SPARK2_CLIENT', 'HBASE_CLIENT']
     services:
       - KAFKA_BROKER
       - NIFI_MASTER
