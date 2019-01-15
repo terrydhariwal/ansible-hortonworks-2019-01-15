@@ -20,7 +20,7 @@ firewall_rules:
   - name: "{{ cluster_name }}-ambari-access"
     allowed: 'tcp:8080,8443'
     # src_range: '0.0.0.0/0'
-    src_range: "REPLACE_WITH_DEVOPS_VM_EXTERNAL_IP"
+    src_range: "34.73.34.31"
 
 nodes:
   - host_group: "hdp-management"
@@ -41,25 +41,16 @@ nodes:
       type: pd-ssd
       size: 500
 
-  - host_group: "hdp-masternode-02"
-    count: 1
-    image: centos-7
-    type: n1-highmem-2
-    public_ip: true
-    root_disk:
-      type: pd-ssd
-      size: 500
+  # - host_group: "hdp-masternode-02"
+  #   count: 1
+  #   image: centos-7
+  #   type: n1-highmem-2
+  #   public_ip: true
+  #   root_disk:
+  #     type: pd-ssd
+  #     size: 500
 
   - host_group: "hdp-worker"
-    count: 3
-    image: centos-7
-    type: n1-highmem-2
-    public_ip: true
-    root_disk:
-      type: pd-standard
-      size: 500
-
-  - host_group: "hdf-worker"
     count: 1
     image: centos-7
     type: n1-highmem-2
@@ -67,3 +58,12 @@ nodes:
     root_disk:
       type: pd-standard
       size: 500
+
+  # - host_group: "hdf-worker"
+  #   count: 1
+  #   image: centos-7
+  #   type: n1-highmem-2
+  #   public_ip: true
+  #   root_disk:
+  #     type: pd-standard
+  #     size: 500
