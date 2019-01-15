@@ -181,21 +181,21 @@ blueprint_dynamic:                                              # properties for
       - ACTIVITY_ANALYZER
       - HST_AGENT
       - METRICS_MONITOR
-  - host_group: "hdp-masternode-02"
-    clients: ['ZOOKEEPER_CLIENT', 'HDFS_CLIENT', 'YARN_CLIENT', 'MAPREDUCE2_CLIENT', 'TEZ_CLIENT', 'SLIDER', 'PIG', 'SQOOP', 'HIVE_CLIENT', 'HCAT', 'OOZIE_CLIENT', 'INFRA_SOLR_CLIENT', 'SPARK2_CLIENT', 'HBASE_CLIENT']
-    services:
-      - ZOOKEEPER_SERVER
-      - NAMENODE
-      - ZKFC
-      - JOURNALNODE
-      - RESOURCEMANAGER
-      - HBASE_MASTER
-      - HIVE_SERVER
-      - HIVE_METASTORE
-      - OOZIE_SERVER
-      - ACTIVITY_ANALYZER
-      - HST_AGENT
-      - METRICS_MONITOR
+  # - host_group: "hdp-masternode-02"
+  #   clients: ['ZOOKEEPER_CLIENT', 'HDFS_CLIENT', 'YARN_CLIENT', 'MAPREDUCE2_CLIENT', 'TEZ_CLIENT', 'SLIDER', 'PIG', 'SQOOP', 'HIVE_CLIENT', 'HCAT', 'OOZIE_CLIENT', 'INFRA_SOLR_CLIENT', 'SPARK2_CLIENT', 'HBASE_CLIENT']
+  #   services:
+  #     - ZOOKEEPER_SERVER
+  #     - NAMENODE
+  #     - ZKFC
+  #     - JOURNALNODE
+  #     - RESOURCEMANAGER
+  #     - HBASE_MASTER
+  #     - HIVE_SERVER
+  #     - HIVE_METASTORE
+  #     - OOZIE_SERVER
+  #     - ACTIVITY_ANALYZER
+  #     - HST_AGENT
+  #     - METRICS_MONITOR
   - host_group: "hdp-management"
     clients: ['ZOOKEEPER_CLIENT', 'HDFS_CLIENT', 'YARN_CLIENT', 'MAPREDUCE2_CLIENT', 'TEZ_CLIENT', 'SLIDER', 'PIG', 'SQOOP', 'HIVE_CLIENT', 'HCAT', 'OOZIE_CLIENT', 'INFRA_SOLR_CLIENT', 'SPARK2_CLIENT', 'HBASE_CLIENT']
     services:
@@ -223,13 +223,13 @@ blueprint_dynamic:                                              # properties for
       - HBASE_REGIONSERVER
       - HST_AGENT
       - METRICS_MONITOR
-  - host_group: "hdf-worker"
-    clients: ['ZOOKEEPER_CLIENT', 'HDFS_CLIENT', 'YARN_CLIENT', 'MAPREDUCE2_CLIENT', 'TEZ_CLIENT', 'SLIDER', 'PIG', 'SQOOP', 'HIVE_CLIENT', 'HCAT', 'OOZIE_CLIENT', 'INFRA_SOLR_CLIENT', 'SPARK2_CLIENT', 'HBASE_CLIENT']
-    services:
-      - KAFKA_BROKER
-      - NIFI_MASTER
-      - HST_AGENT
-      - METRICS_MONITOR
+  # - host_group: "hdf-worker"
+  #   clients: ['ZOOKEEPER_CLIENT', 'HDFS_CLIENT', 'YARN_CLIENT', 'MAPREDUCE2_CLIENT', 'TEZ_CLIENT', 'SLIDER', 'PIG', 'SQOOP', 'HIVE_CLIENT', 'HCAT', 'OOZIE_CLIENT', 'INFRA_SOLR_CLIENT', 'SPARK2_CLIENT', 'HBASE_CLIENT']
+  #   services:
+  #     - KAFKA_BROKER
+  #     - NIFI_MASTER
+  #     - HST_AGENT
+  #     - METRICS_MONITOR
 
 
 
