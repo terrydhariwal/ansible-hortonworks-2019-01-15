@@ -30,7 +30,7 @@ nodes:
     public_ip: true
     root_disk:
       type: pd-ssd
-      size: 500
+      size: 100
 
   - host_group: "hdp-masternode-01"
     count: 1
@@ -39,7 +39,7 @@ nodes:
     public_ip: true
     root_disk:
       type: pd-ssd
-      size: 500
+      size: 100
 
   - host_group: "hdp-masternode-02"
     count: 1
@@ -48,16 +48,16 @@ nodes:
     public_ip: true
     root_disk:
       type: pd-ssd
-      size: 500
+      size: 100
 
   - host_group: "hdp-worker"
-    count: 3
+    count: 2
     image: centos-7
     type: n1-highmem-2
     public_ip: true
     root_disk:
       type: pd-standard
-      size: 500
+      size: 100
 
   - host_group: "hdf-worker"
     count: 1
@@ -66,4 +66,4 @@ nodes:
     public_ip: true
     root_disk:
       type: pd-standard
-      size: 500
+      size: 100
