@@ -59,11 +59,11 @@ nodes:
       type: pd-standard
       size: 500
 
-  # - host_group: "hdf-worker"
-  #   count: 1
-  #   image: centos-7
-  #   type: n1-highmem-2
-  #   public_ip: true
-  #   root_disk:
-  #     type: pd-standard
-  #     size: 500
+  - host_group: "hdf-worker"
+    count: 1
+    image: centos-7
+    type: n1-highmem-2
+    public_ip: true
+    root_disk:
+      type: pd-standard
+      size: 500
