@@ -214,6 +214,8 @@ blueprint_dynamic:                                              # properties for
       - METRICS_GRAFANA
       - METRICS_MONITOR
       - NIFI_REGISTRY_MASTER
+      - YARN_REGISTRY_DNS
+      - TIMELINE_READER
   - host_group: "hdp-worker"
     clients: ['ZOOKEEPER_CLIENT', 'HDFS_CLIENT', 'YARN_CLIENT', 'MAPREDUCE2_CLIENT', 'TEZ_CLIENT', 'PIG', 'SQOOP', 'HIVE_CLIENT', 'OOZIE_CLIENT', 'INFRA_SOLR_CLIENT', 'SPARK2_CLIENT', 'HBASE_CLIENT']
     services:
