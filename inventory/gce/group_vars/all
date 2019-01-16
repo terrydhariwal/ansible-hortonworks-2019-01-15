@@ -20,7 +20,7 @@ firewall_rules:
   - name: "{{ cluster_name }}-ambari-access"
     allowed: 'tcp:8080,8443'
     # src_range: '0.0.0.0/0'
-    src_range: "34.73.34.31 109.123.74.205"
+    src_range: "34.73.34.31-109.123.74.205"
 
 nodes:
   - host_group: "hdp-management"
