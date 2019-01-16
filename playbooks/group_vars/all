@@ -224,6 +224,13 @@ blueprint_dynamic:                                              # properties for
       - HBASE_REGIONSERVER
       - HST_AGENT
       - METRICS_MONITOR
+  - host_group: "hdf-worker"
+    clients: ['ZOOKEEPER_CLIENT', 'HDFS_CLIENT', 'YARN_CLIENT', 'MAPREDUCE2_CLIENT', 'TEZ_CLIENT', 'PIG', 'SQOOP', 'HIVE_CLIENT', 'OOZIE_CLIENT', 'INFRA_SOLR_CLIENT', 'SPARK2_CLIENT', 'HBASE_CLIENT']
+    services:
+      - KAFKA_BROKER
+      - NIFI_MASTER
+      - HST_AGENT
+      - METRICS_MONITOR
 
 
 
